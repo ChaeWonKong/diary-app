@@ -10,19 +10,21 @@ import {
 } from "react-native";
 import Loading from "./component/Loading";
 import Home from "./component/Home";
+import CreateView from "./component/CreateView";
 import { Entypo } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
 export default class App extends React.Component {
   state = {
-    isLoaded: false
+    isLoaded: false,
+    isCreating: false
   };
   componentDidMount() {
     this._getContents();
   }
   render() {
-    const { isLoaded } = this.state;
+    const { isLoaded, isCreating } = this.state;
     return (
       <View style={styles.container}>
         {isLoaded ? (
@@ -31,10 +33,15 @@ export default class App extends React.Component {
               <Text style={styles.text}>Daily Diary</Text>
             </View>
             <View style={styles.view}>
-              <Home />
+              {isCreating ? <CreateView /> : <Home />}
             </View>
             <TouchableOpacity style={styles.createButton}>
-              <Entypo name={"circle-with-plus"} size={70} color={"green"} />
+              <Entypo
+                name={"circle-with-plus"}
+                size={70}
+                color={"green"}
+                onPressOut={_getCreatePage}
+              />
             </TouchableOpacity>
             <View style={styles.nav}>
               <Entypo name={"home"} size={30} />
@@ -52,6 +59,9 @@ export default class App extends React.Component {
     setTimeout(() => {
       this.setState({ isLoaded: true });
     }, 2000);
+    _getCreatePage = () => {
+      this.setState({ isCreating: true });
+    };
   };
 }
 
