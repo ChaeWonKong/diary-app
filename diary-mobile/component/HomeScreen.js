@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Button,
   StyleSheet,
   Text,
   View,
@@ -9,18 +8,28 @@ import {
   Platform,
   TouchableOpacity
 } from "react-native";
-import { createStackNavigator } from "react-navigation";
-import CreateScreen from "./CreateScreen";
+import Header from "./Header";
+import Nav from "./Nav";
 import { Entypo } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
 export default class HomeScreen extends Component {
+  static navigationOptions = {
+    headerTitle: <Header />
+  };
   render() {
     return (
-      <View>
-        <View style={styles.imagePos} />
-        <Text style={styles.text}>This is Home View</Text>
+      <View style={styles.container}>
+        <View style={styles.imagePos}>
+          <Image
+            source={require("../public/images/ex2.png")}
+            style={styles.image}
+          />
+        </View>
+        <View style={styles.text}>
+          <Text>This is Home View</Text>
+        </View>
         <TouchableOpacity style={styles.createButton}>
           <Entypo
             name="circle-with-plus"
@@ -29,6 +38,9 @@ export default class HomeScreen extends Component {
             onPress={() => this.props.navigation.navigate("Create")}
           />
         </TouchableOpacity>
+        <View style={styles.nav}>
+          <Nav pressHome={this.props.navigation} />
+        </View>
       </View>
     );
   }
@@ -41,16 +53,20 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   imagePos: {
-    flex: 1
+    flex: 5
+  },
+  image: {
+    flex: 1,
+    width: width
   },
   text: {
-    flex: 1,
+    flex: 5,
     justifyContent: "center"
   },
   createButton: {
     position: "absolute",
-    top: (7 * height) / 11,
-    left: (7 * width) / 9,
+    top: (7 * height) / 10,
+    left: (8 * width) / 10,
     ...Platform.select({
       ios: {
         shadowColor: "rgb(50, 50, 50)",
@@ -65,5 +81,10 @@ const styles = StyleSheet.create({
         elevation: 1
       }
     })
+  },
+  nav: {
+    flex: 1,
+    width: width,
+    backgroundColor: "#fff"
   }
 });
