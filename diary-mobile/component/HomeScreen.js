@@ -13,6 +13,7 @@ import Nav from "./Nav";
 import { Entypo } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
+const Opacity = 0.6;
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -30,7 +31,7 @@ export default class HomeScreen extends Component {
         <View style={styles.text}>
           <Text>This is Home View</Text>
         </View>
-        <TouchableOpacity style={styles.createButton}>
+        <TouchableOpacity style={styles.createButton} activeOpacity={Opacity}>
           <Entypo
             name="circle-with-plus"
             size={50}

@@ -12,6 +12,8 @@ import Nav from "./Nav";
 import Entypo from "../node_modules/@expo/vector-icons/Entypo";
 
 const { width } = Dimensions.get("window");
+const Opacity = 0.6;
+
 export default class CreateScreen extends Component {
   static navigationOptions = {
     headerTitle: <Header />
@@ -27,7 +29,7 @@ export default class CreateScreen extends Component {
       <View style={styles.container}>
         <View style={styles.create}>
           <View style={styles.image}>
-            <TouchableOpacity>
+            <TouchableOpacity activeOpacity={Opacity}>
               <Entypo name="squared-plus" size={100} color="#bbb" />
             </TouchableOpacity>
           </View>
