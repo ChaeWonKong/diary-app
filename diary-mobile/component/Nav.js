@@ -16,14 +16,22 @@ export default class Nav extends Component {
           <Entypo
             name="home"
             size={30}
-            onPress={() => this.props.pressHome.navigate("Home")}
+            onPress={() => this.props.pressBtn.navigate("Home")}
           />
         </TouchableOpacity>
         <TouchableOpacity activeOpacity={Opacity}>
-          <Entypo name="grid" size={30} />
+          <Entypo
+            name="grid"
+            size={30}
+            onPress={() => this.props.pressBtn.navigate("Grid")}
+          />
         </TouchableOpacity>
         <TouchableOpacity activeOpacity={Opacity}>
-          <Entypo name="menu" size={30} />
+          <Entypo
+            name="menu"
+            size={30}
+            onPress={() => this.props.pressBtn.navigate("Home")}
+          />
         </TouchableOpacity>
       </View>
     );

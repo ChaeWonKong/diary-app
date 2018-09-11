@@ -7,6 +7,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import Header from "./Header";
+import Nav from "./Nav";
 import Entypo from "../node_modules/@expo/vector-icons/Entypo";
 
 const { width } = Dimensions.get("window");
@@ -51,7 +52,7 @@ export default class CreateScreen extends Component {
             />
           </View>
         </View>
-        {/* Nav here */}}
+        <Nav pressBtn={this.props.navigation} />
       </View>
     );
   }

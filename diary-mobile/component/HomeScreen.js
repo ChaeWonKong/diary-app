@@ -19,15 +19,13 @@ const Opacity = 0.6;
 const diaryData = [
   {
     title: "img1",
-    text:
-      "img1 is... asdkfjklasjdfk ljaslkdfjawheoirhasdhfkl ajsdklfjaklsjdklfjaklsdjf;lkjasd;klfjkl;a",
+    text: "img1 is...",
     img: require("../public/images/ex1.png"),
     id: "0001"
   },
   {
     title: "img2",
-    text:
-      "img2 is... asldjflsadjfl; jkasjdklfjaio;sjdfioajsio djfklasjdkl;fjakls;djf",
+    text: "img2 is...",
     img: require("../public/images/ex2.png"),
     id: "0002"
   }
@@ -62,7 +60,7 @@ export default class HomeScreen extends Component {
           />
         </TouchableOpacity>
         <View style={styles.nav}>
-          <Nav pressHome={this.props.navigation} />
+          <Nav pressBtn={this.props.navigation} />
         </View>
       </View>
     );
@@ -116,7 +114,7 @@ const styles = StyleSheet.create({
     height: (5 * height) / 12,
     justifyContent: "center",
     backgroundColor: "#fff",
-    padding: 10
+    padding: 20
   },
   createButton: {
     position: "absolute",
