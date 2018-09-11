@@ -19,13 +19,15 @@ const Opacity = 0.6;
 const diaryData = [
   {
     title: "img1",
-    text: "img1 is...",
+    text:
+      "img1 is... asdkfjklasjdfk ljaslkdfjawheoirhasdhfkl ajsdklfjaklsjdklfjaklsdjf;lkjasd;klfjkl;a",
     img: require("../public/images/ex1.png"),
     id: "0001"
   },
   {
     title: "img2",
-    text: "img2 is...",
+    text:
+      "img2 is... asldjflsadjfl; jkasjdklfjaio;sjdfioajsio djfklasjdkl;fjakls;djf",
     img: require("../public/images/ex2.png"),
     id: "0002"
   }
@@ -81,7 +83,7 @@ export default class HomeScreen extends Component {
             <Image source={diary.img} style={styles.image} />
           </View>
           <View style={styles.text}>
-            <Text>{diary.text}</Text>
+            <Text multiline={true}>{diary.text}</Text>
           </View>
         </View>
       );
@@ -104,16 +106,17 @@ const styles = StyleSheet.create({
   },
   imagePos: {
     flex: 1,
-    height: width
+    height: (5 * height) / 12
   },
   image: {
     width: width,
     flex: 1
   },
   text: {
-    height: width,
+    height: (5 * height) / 12,
     justifyContent: "center",
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    padding: 10
   },
   createButton: {
     position: "absolute",
