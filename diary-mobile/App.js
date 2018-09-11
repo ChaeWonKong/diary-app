@@ -19,13 +19,14 @@ const RootStack = createStackNavigator(
 
 export default class App extends Component {
   state = {
-    isLoaded: false
+    isLoaded: false,
+    isFontLoaded: false
   };
   componentDidMount() {
     this._getContents();
   }
   render() {
-    const { isLoaded } = this.state;
+    const { isLoaded, isFontLoaded } = this.state;
     return (
       <View style={styles.container}>
         {isLoaded ? (
@@ -33,7 +34,7 @@ export default class App extends Component {
             <RootStack />
           </View>
         ) : (
-          <Loading />
+          <Loading font={isFontLoaded} />
         )}
       </View>
     );

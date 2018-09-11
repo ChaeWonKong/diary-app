@@ -34,7 +34,7 @@ export default class HomeScreen extends Component {
         <TouchableOpacity style={styles.createButton} activeOpacity={Opacity}>
           <Entypo
             name="circle-with-plus"
-            size={50}
+            size={70}
             color="green"
             onPress={() => this.props.navigation.navigate("Create")}
           />
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   createButton: {
     position: "absolute",
     top: (7 * height) / 10,
-    left: (8 * width) / 10,
+    left: (3 * width) / 4,
     ...Platform.select({
       ios: {
         shadowColor: "rgb(50, 50, 50)",
