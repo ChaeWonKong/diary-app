@@ -4,13 +4,13 @@ import { createStackNavigator } from "react-navigation";
 import Loading from "./component/Loading";
 import HomeScreen from "./component/HomeScreen";
 import CreateScreen from "./component/CreateScreen";
-import Nav from "./component/Nav";
+import GreedScreen from "./component/GridScreen";
 
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
     Create: CreateScreen,
-    Nav: Nav
+    Grid: GreedScreen
   },
   {
     initialRouteName: "Home"

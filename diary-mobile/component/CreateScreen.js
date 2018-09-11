@@ -3,12 +3,10 @@ import {
   TextInput,
   View,
   StyleSheet,
-  Text,
   Dimensions,
   TouchableOpacity
 } from "react-native";
 import Header from "./Header";
-import Nav from "./Nav";
 import Entypo from "../node_modules/@expo/vector-icons/Entypo";
 
 const { width } = Dimensions.get("window");
@@ -53,9 +51,7 @@ export default class CreateScreen extends Component {
             />
           </View>
         </View>
-        <View style={styles.nav}>
-          <Nav pressHome={this.props.navigation} />
-        </View>
+        {/* Nav here */}}
       </View>
     );
   }
