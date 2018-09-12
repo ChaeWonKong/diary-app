@@ -8,7 +8,7 @@ export default class Loading extends Component {
   };
   async componentDidMount() {
     await Font.loadAsync({
-      "mukta-medium": require("../assets/Mukta/Mukta-Medium.ttf")
+      "mukta-medium": require("../assets/fonts/Mukta/Mukta-Medium.ttf")
     });
     this.setState({
       isFontLoadied: true

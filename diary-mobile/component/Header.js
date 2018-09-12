@@ -9,8 +9,8 @@ export default class Header extends Component {
 
   async componentDidMount() {
     await Font.loadAsync({
-      "mukta-regular": require("../assets/Mukta/Mukta-Regular.ttf"),
-      "mukta-medium": require("../assets/Mukta/Mukta-Medium.ttf")
+      "mukta-regular": require("../assets/fonts/Mukta/Mukta-Regular.ttf"),
+      "mukta-medium": require("../assets/fonts/Mukta/Mukta-Medium.ttf")
     });
     this.setState({ isFontLoaded: true });
   }

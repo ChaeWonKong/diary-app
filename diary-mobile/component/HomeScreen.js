@@ -13,6 +13,9 @@ import Header from "./Header";
 import Nav from "./Nav";
 import { Entypo } from "@expo/vector-icons";
 import uuidv1 from "uuid/v1";
+import FontAwesome from "../node_modules/@expo/vector-icons/FontAwesome";
+import { Font } from "expo";
+import Loading from "./Loading";
 
 const { width, height } = Dimensions.get("window");
 const Opacity = 0.6;
@@ -41,32 +44,42 @@ export default class HomeScreen extends Component {
     headerTitle: <Header />
   };
   state = {};
-  componentDidMount() {
+  async componentDidMount() {
+    await Font.loadAsync({
+      "noto-sans-med": require("../assets/fonts/Noto_Sans_KR/NotoSansKR-Medium.otf"),
+      "noto-sans": require("../assets/fonts/Noto_Sans_KR/NotoSansKR-Light.otf")
+    });
     this._getDiaries();
   }
   render() {
     return (
       <View style={styles.container}>
         {this.state.diaries ? (
-          <View style={styles.scrollView}>
-            <ScrollView style={styles.scrollView}>
-              {this._renderDiaries()}
-            </ScrollView>
+          <View style={styles.container}>
+            <View style={styles.scrollView}>
+              <ScrollView style={styles.scrollView}>
+                {this._renderDiaries()}
+              </ScrollView>
+            </View>
+
+            <TouchableOpacity
+              style={styles.createButton}
+              activeOpacity={Opacity}
+            >
+              <Entypo
+                name="circle-with-plus"
+                size={70}
+                color="green"
+                onPress={() => this.props.navigation.navigate("Create")}
+              />
+            </TouchableOpacity>
+            <View style={styles.nav}>
+              <Nav pressBtn={this.props.navigation} />
+            </View>
           </View>
         ) : (
-          <Text>Loading</Text>
+          <Loading />
         )}
-        <TouchableOpacity style={styles.createButton} activeOpacity={Opacity}>
-          <Entypo
-            name="circle-with-plus"
-            size={70}
-            color="green"
-            onPress={() => this.props.navigation.navigate("Create")}
-          />
-        </TouchableOpacity>
-        <View style={styles.nav}>
-          <Nav pressBtn={this.props.navigation} />
-        </View>
       </View>
     );
   }
@@ -134,16 +147,19 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginTop: 10
+    marginTop: 10,
+    fontFamily: "noto-sans-med"
   },
   date: {
     fontSize: 16,
+    fontFamily: "noto-sans",
     color: "#bbb",
     marginTop: 10
   },
   text: {
     marginTop: 10,
     fontSize: 16,
+    fontFamily: "noto-sans",
     lineHeight: 24
   },
   createButton: {
