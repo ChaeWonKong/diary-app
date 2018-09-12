@@ -128,19 +128,23 @@ const styles = StyleSheet.create({
   },
   textField: {
     height: (5 * height) / 12,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     backgroundColor: "#fff",
     padding: 20
   },
   title: {
-    fontSize: 20
+    fontSize: 20,
+    marginTop: 10
   },
   date: {
     fontSize: 16,
-    color: "#bbb"
+    color: "#bbb",
+    marginTop: 10
   },
   text: {
-    fontSize: 16
+    marginTop: 10,
+    fontSize: 16,
+    lineHeight: 24
   },
   createButton: {
     position: "absolute",
