@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import { createStackNavigator } from "react-navigation";
-import Loading from "./component/Loading";
-import HomeScreen from "./component/HomeScreen";
-import CreateScreen from "./component/CreateScreen";
-import GreedScreen from "./component/GridScreen";
-import { createStore } from "redux";
-import reducer from "./reducer";
+import Loading from "./Loading";
+import HomeScreen from "./HomeScreen";
+import CreateScreen from "./CreateScreen";
+import GreedScreen from "./GridScreen";
 
-const store = createStore(reducer);
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
