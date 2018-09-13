@@ -64,16 +64,14 @@ export default class HomeScreen extends Component {
   }
 
   _getDiaries = () => {
-    // map 함수 사용법 제대로 익히기...
-    const diaries = this.props.diaries.map(diary => {});
-    console.log(diaries);
+    const diaries = this.props.diaries;
     return this.setState({ diaries });
   };
 
   _renderDiaries = () => {
-    const diaries = this.state.map(diary => {
+    const diaries = this.state.diaries.map(diary => {
       return (
-        <View key={id} style={styles.contents}>
+        <View key={diary.id} style={styles.contents}>
           <View style={styles.imagePos}>
             <Image source={diary.img} style={styles.image} />
           </View>

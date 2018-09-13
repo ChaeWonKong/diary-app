@@ -54,7 +54,8 @@ let DATA = [
 const diaries = DATA.map(diary => {
   const ID = uuidv1();
   const newData = {
-    [ID]: diary
+    ...diary,
+    id: ID
   };
   return newData;
 });
@@ -77,19 +78,16 @@ function reducer(state = initialState, action) {
 }
 // Create Reducer Functions
 function applyAddDiary(state, action) {
-  const id = uuidv1();
+  const ID = uuidv1();
   const newState = {
     ...state,
-    [id]: {
-      title: action.title,
-      text: action.text,
-      img: action.img,
-      date: new Date()
-    }
+    title: action.title,
+    text: action.text,
+    img: action.img,
+    id: ID,
+    date: new Date()
   };
-  return {
-    ...state
-  };
+  return newState;
 }
 
 function applyEditDiary(state, action) {
