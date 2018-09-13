@@ -12,8 +12,6 @@ import {
 import Header from "./Header";
 import Nav from "./Nav";
 import { Entypo } from "@expo/vector-icons";
-import uuidv1 from "uuid/v1";
-import FontAwesome from "../node_modules/@expo/vector-icons/FontAwesome";
 import { Font } from "expo";
 import Loading from "./Loading";
 
@@ -66,22 +64,16 @@ export default class HomeScreen extends Component {
   }
 
   _getDiaries = () => {
-    const diaries = state.map(diary => {
-      const newDiaries = {
-        ...diary,
-        id: uuidv1()
-      };
-      return newDiaries;
-    });
-    this.setState({
-      diaries
-    });
+    // map 함수 사용법 제대로 익히기...
+    const diaries = this.props.diaries.map(diary => {});
+    console.log(diaries);
+    return this.setState({ diaries });
   };
 
   _renderDiaries = () => {
-    const diaries = this.state.diaries.map(diary => {
+    const diaries = this.state.map(diary => {
       return (
-        <View key={diary.id} style={styles.contents}>
+        <View key={id} style={styles.contents}>
           <View style={styles.imagePos}>
             <Image source={diary.img} style={styles.image} />
           </View>
