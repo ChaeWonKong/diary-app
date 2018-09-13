@@ -18,10 +18,7 @@ export default class CreateScreen extends Component {
     headerTitle: <Header />
   };
 
-  state = {
-    title: "",
-    text: ""
-  };
+  state = {};
 
   render() {
     return (
@@ -36,7 +33,6 @@ export default class CreateScreen extends Component {
             <TextInput
               onChange={title => this.setState({ title: title })}
               placeholder="Title"
-              value={this.state.title}
               fontSize="20px"
               returnKeyType={"next"}
             />
@@ -45,7 +41,6 @@ export default class CreateScreen extends Component {
             <TextInput
               onChange={text => this.setState({ text: text })}
               placeholder="Text"
-              value={this.state.text}
               fontSize="20px"
               multiline={true}
               returnKeyType={"next"}
@@ -56,6 +51,16 @@ export default class CreateScreen extends Component {
       </View>
     );
   }
+  _createDiaries = () => {
+    if (state) {
+      this.setState({
+        ...state,
+        id: uuidv1(),
+        img: "null",
+        date: new Date()
+      });
+    }
+  };
 }
 
 const styles = StyleSheet.create({
