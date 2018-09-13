@@ -7,21 +7,29 @@ const EDIT_DIARY = "EDIT_DIARY";
 const REMOVE_DIARY = "REMOVE_DIARY";
 
 // Action Creators
-function addDiary() {
+function addDiary(title, text, img) {
   return {
-    type: ADD_DIARY
+    type: ADD_DIARY,
+    title: title,
+    text: text,
+    img: img
   };
 }
 
-function editDiary() {
+function editDiary(id, title, text, img) {
   return {
-    type: EDIT_DIARY
+    type: EDIT_DIARY,
+    id: id,
+    title: title,
+    text: text,
+    img: img
   };
 }
 
-function removeDiary() {
+function removeDiary(id) {
   return {
-    type: REMOVE_DIARY
+    type: REMOVE_DIARY,
+    id: id
   };
 }
 
@@ -64,14 +72,14 @@ function reducer(state = initialState, action) {
   }
 }
 // Create Reducer Functions
-function applyAddDiary(state, { title, img, text }) {
+function applyAddDiary(state, action) {
   const id = uuidv1();
   const newState = {
     ...state,
     [id]: {
-      title: title,
-      text: text,
-      img: img,
+      title: action.title,
+      text: action.text,
+      img: action.img,
       date: new Date()
     }
   };
@@ -80,12 +88,12 @@ function applyAddDiary(state, { title, img, text }) {
   };
 }
 
-function applyEditDiary(state, action, id, title, img, text) {
+function applyEditDiary(state, action) {
   const newDiary = {
-    [id]: {
-      title: title,
-      img: img,
-      text: text
+    [action.id]: {
+      title: action.title,
+      img: action.img,
+      text: action.text
     }
   };
   return {
@@ -94,20 +102,20 @@ function applyEditDiary(state, action, id, title, img, text) {
   };
 }
 
-function applyRemoveDiary(state, action, id) {
-    const newState = state,
-    delete newState[id]
-    return newState
+function applyRemoveDiary(state, action) {
+  const newState = state;
+  delete newState[action.id];
+  return newState;
 }
 
 // Export Action Creators
 const actionCreators = {
-    addDiary,
-    editDiary, 
-    removeDiary
-}
+  addDiary,
+  editDiary,
+  removeDiary
+};
 
-export {actionCreators};
+export { actionCreators };
 
 // Export Reducer
 export default reducer;
