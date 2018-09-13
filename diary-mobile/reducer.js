@@ -1,5 +1,6 @@
 // Import
 import uuidv1 from "uuid/v1";
+
 // Action
 const ADD_DIARY = "ADD_DIARY";
 const EDIT_DIARY = "EDIT_DIARY";
@@ -78,7 +79,8 @@ function applyAddDiary(state, { title, img, text }) {
     ...state
   };
 }
-function applyEditDiary(state, id, title, img, text) {
+
+function applyEditDiary(state, action, id, title, img, text) {
   const newDiary = {
     [id]: {
       title: title,
@@ -91,8 +93,21 @@ function applyEditDiary(state, id, title, img, text) {
     newDiary
   };
 }
-function applyRemoveDiary(state, action) {}
+
+function applyRemoveDiary(state, action, id) {
+    const newState = state,
+    delete newState[id]
+    return newState
+}
 
 // Export Action Creators
+const actionCreators = {
+    addDiary,
+    editDiary, 
+    removeDiary
+}
+
+export {actionCreators};
 
 // Export Reducer
+export default reducer;
