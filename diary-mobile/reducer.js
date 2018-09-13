@@ -64,13 +64,18 @@ function reducer(state = initialState, action) {
 }
 // Create Reducer Functions
 function applyAddDiary({ title, img, text }) {
-  return {
+  const id = uuidv1();
+  const newState = {
     ...state,
-    title: title,
-    img: img,
-    text: text,
-    date: new Date(),
-    id: uuidv1()
+    [id]: {
+      title: title,
+      text: text,
+      img: img,
+      date: new Date()
+    }
+  };
+  return {
+    ...state
   };
 }
 function applyEditDiary(id, title, img, text) {
