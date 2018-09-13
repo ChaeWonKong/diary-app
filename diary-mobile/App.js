@@ -5,7 +5,10 @@ import Loading from "./component/Loading";
 import HomeScreen from "./component/HomeScreen";
 import CreateScreen from "./component/CreateScreen";
 import GreedScreen from "./component/GridScreen";
+import { createStore } from "redux";
+import reducer from "./reducer";
 
+const store = createStore(reducer);
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
