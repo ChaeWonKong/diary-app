@@ -19,6 +19,6 @@ const mapDispatchToProps = disaptch => {
 const Create = connect(
   mapStateToProps,
   mapDispatchToProps
-);
+)(CreateScreen);
 
 export default Create;
