@@ -63,7 +63,7 @@ function reducer(state = initialState, action) {
   }
 }
 // Create Reducer Functions
-function applyAddDiary({ title, img, text }) {
+function applyAddDiary(state, { title, img, text }) {
   const id = uuidv1();
   const newState = {
     ...state,
@@ -78,10 +78,20 @@ function applyAddDiary({ title, img, text }) {
     ...state
   };
 }
-function applyEditDiary(id, title, img, text) {
-  return {};
+function applyEditDiary(state, id, title, img, text) {
+  const newDiary = {
+    [id]: {
+      title: title,
+      img: img,
+      text: text
+    }
+  };
+  return {
+    ...state,
+    newDiary
+  };
 }
-function applyRemoveDiary() {}
+function applyRemoveDiary(state, action) {}
 
 // Export Action Creators
 
