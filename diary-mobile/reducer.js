@@ -25,37 +25,31 @@ function removeDiary() {
 }
 
 // Reducer
-const data = [
-  {
+const data = {
+  abcd1: {
     title: "선인장",
     text:
       "선인장은 죽을 때가 되어서야 꽃을 피운다. 그것은 명멸하는 생명력 앞에서 최후 변론을 하는 셈이기도 하다.",
     img: require("../public/images/ex1.png"),
-    date: "2018-01-02",
-    id: ""
+    date: "2018-01-02"
   },
-  {
+  bcde1: {
     title: "커피를 마시며",
     text:
       "커피는 쓰다. 커피는 향기롭다. 커피향을 맡은 사람은 커피를 찾지만, 정작 커피는 마시면 쓰다. 그것은 어쩌면 멀리서 볼 때는 희극이지만 가까이서 보면 비극인 인생과 닮았는지도 모른다.",
     img: require("../public/images/ex2.png"),
-    date: "2018-09-12",
-    id: ""
+    date: "2018-09-12"
   }
-];
+};
 
 const diaries = data.map(diary => {
-  return {
-    ...diary,
-    id: uuidv1()
-  };
+  return (diary.id = uuidv1());
 });
 
 const initialState = {
   diaries
 };
 
-// Create Reducer Functions
 function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_DIARY:
@@ -68,8 +62,7 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
-
-// Export Action Creators
+// Create Reducer Functions
 function applyAddDiary({ title, img, text }) {
   return {
     ...state,
@@ -80,7 +73,11 @@ function applyAddDiary({ title, img, text }) {
     id: uuidv1()
   };
 }
-function applyEditDiary() {}
+function applyEditDiary(id, title, img, text) {
+  return {};
+}
 function applyRemoveDiary() {}
+
+// Export Action Creators
 
 // Export Reducer
