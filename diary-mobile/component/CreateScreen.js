@@ -52,7 +52,10 @@ class CreateScreen extends Component {
               multiline={true}
               returnKeyType={"next"}
             />
-            <Button title="SUBMIT" onPress={this._submitDiary(this.state)} />
+            <Button
+              title="SUBMIT"
+              onPress={() => this.props.navigation.navigate("Home")}
+            />
           </View>
         </View>
         <Nav pressBtn={this.props.navigation} />
@@ -61,12 +64,6 @@ class CreateScreen extends Component {
   }
   _submitDiary = state => {
     addDiary(state.title, state.text, state.img);
-    this.setState({
-      title: "",
-      text: "",
-      img: ""
-    });
-    this.props.navigation.navigate("Home");
   };
 }
 
