@@ -8,7 +8,7 @@ const mapStateToProps = state => {
   return { diaries };
 };
 
-const mapDispatchToProps = disaptch => {
+const mapDispatchToProps = dispatch => {
   return {
     createDiary: bindActionCreators(actionCreators.addDiary, dispatch),
     editDiary: bindActionCreators(actionCreators.editDiary, dispatch),

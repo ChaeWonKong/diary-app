@@ -28,6 +28,7 @@ class CreateScreen extends Component {
   };
 
   render() {
+    const { title, text, img } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.create}>
@@ -52,8 +53,9 @@ class CreateScreen extends Component {
               multiline={true}
               returnKeyType={"next"}
             />
+            <Button title="SUBMIt" onPress={() => console.log(this.props)} />
             <Button
-              title="SUBMIT"
+              title="HOME"
               onPress={() => this.props.navigation.navigate("Home")}
             />
           </View>
@@ -62,8 +64,9 @@ class CreateScreen extends Component {
       </View>
     );
   }
-  _submitDiary = state => {
-    addDiary(state.title, state.text, state.img);
+  submitDiary = (title, text, img) => {
+    this.props.store.dispatch(addDiary(title, text, img));
+    alert(this.props.diaries);
   };
 }
 
@@ -96,7 +99,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   }
 });
-
-CreateScreen = connect()(CreateScreen);
 
 export default CreateScreen;

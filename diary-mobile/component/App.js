@@ -3,13 +3,13 @@ import { StyleSheet, View } from "react-native";
 import { createStackNavigator } from "react-navigation";
 import Loading from "./Loading";
 import Home from "../container/Home";
-import CreateScreen from "./CreateScreen";
+import Create from "../container/Create";
 import GreedScreen from "./GridScreen";
 
 const RootStack = createStackNavigator(
   {
     Home: Home,
-    Create: CreateScreen,
+    Create: Create,
     Grid: GreedScreen
   },
   {
