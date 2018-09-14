@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { actionCreators } from "../reducer";
-import CreateScreen from "../component/HomeScreen";
+import CreateScreen from "../component/CreateScreen";
 import { bindActionCreators } from "redux";
 
 const mapStateToProps = state => {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createDiary: bindActionCreators(actionCreators.addDiary, dispatch),
+    addDiary: bindActionCreators(actionCreators.addDiary, dispatch),
     editDiary: bindActionCreators(actionCreators.editDiary, dispatch),
     removeDiary: bindActionCreators(actionCreators.removeDiary, dispatch)
   };

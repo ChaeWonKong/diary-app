@@ -10,13 +10,12 @@ import {
 import Header from "./Header";
 import Nav from "./Nav";
 import Entypo from "../node_modules/@expo/vector-icons/Entypo";
-import { connect } from "react-redux";
 import addDiary from "../reducer";
 
 const { width } = Dimensions.get("window");
 const Opacity = 0.6;
 
-class CreateScreen extends Component {
+export default class CreateScreen extends Component {
   static navigationOptions = {
     headerTitle: <Header />
   };
@@ -53,7 +52,10 @@ class CreateScreen extends Component {
               multiline={true}
               returnKeyType={"next"}
             />
-            <Button title="SUBMIt" onPress={() => console.log(this.props)} />
+            <Button
+              title="SUBMIt"
+              onPress={() => this.submitDiary(title, text, img)}
+            />
             <Button
               title="HOME"
               onPress={() => this.props.navigation.navigate("Home")}
@@ -65,7 +67,8 @@ class CreateScreen extends Component {
     );
   }
   submitDiary = (title, text, img) => {
-    this.props.store.dispatch(addDiary(title, text, img));
+    addDiary(title, text, img);
+    console.log(this.props.diaries);
     alert(this.props.diaries);
   };
 }
@@ -99,5 +102,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   }
 });
-
-export default CreateScreen;

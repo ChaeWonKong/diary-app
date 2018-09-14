@@ -31,7 +31,6 @@ export default class HomeScreen extends Component {
     this._getDiaries();
   }
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         {this.state.diaries ? (
