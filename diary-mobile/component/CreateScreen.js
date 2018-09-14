@@ -11,7 +11,7 @@ import Header from "./Header";
 import Nav from "./Nav";
 import Entypo from "../node_modules/@expo/vector-icons/Entypo";
 import { connect } from "react-redux";
-import { addDiary } from "../reducer";
+import addDiary from "../reducer";
 
 const { width } = Dimensions.get("window");
 const Opacity = 0.6;
@@ -52,23 +52,21 @@ class CreateScreen extends Component {
               multiline={true}
               returnKeyType={"next"}
             />
-            <Button
-              title="SUBMIT"
-              onPress={this._dispatchDiaryFromState(this.state)}
-            />
+            <Button title="SUBMIT" onPress={this._submitDiary(this.state)} />
           </View>
         </View>
         <Nav pressBtn={this.props.navigation} />
       </View>
     );
   }
-  _dispatchDiaryFromState = state => {
-    dispatch(addDiary(state.title, state.text, state.img));
+  _submitDiary = state => {
+    addDiary(state.title, state.text, state.img);
     this.setState({
       title: "",
       text: "",
       img: ""
     });
+    this.props.navigation.navigate("Home");
   };
 }
 
