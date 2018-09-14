@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = disaptch => {
   return {
-    createDiary: bindActionCreators(actionCreators.createDiary, dispatch),
+    createDiary: bindActionCreators(actionCreators.addDiary, dispatch),
     editDiary: bindActionCreators(actionCreators.editDiary, dispatch),
     removeDiary: bindActionCreators(actionCreators.removeDiary, dispatch)
   };

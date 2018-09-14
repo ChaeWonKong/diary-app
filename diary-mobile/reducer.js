@@ -10,26 +10,26 @@ const REMOVE_DIARY = "REMOVE_DIARY";
 function addDiary(title, text, img) {
   return {
     type: ADD_DIARY,
-    title: title,
-    text: text,
-    img: img
+    title,
+    text,
+    img
   };
 }
 
 function editDiary(id, title, text, img) {
   return {
     type: EDIT_DIARY,
-    id: id,
-    title: title,
-    text: text,
-    img: img
+    id,
+    title,
+    text,
+    img
   };
 }
 
 function removeDiary(id) {
   return {
     type: REMOVE_DIARY,
-    id: id
+    id
   };
 }
 
