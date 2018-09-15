@@ -9,8 +9,10 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "eslint": "^5.6.0",
     "expo": "^29.0.0",
-    "react": "16.3.1",
+    "expo-react-native-adapter": "^1.1.1",
+    "react": "^16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
     "react-navigation": "^2.13.0",
     "react-redux": "^5.0.7",

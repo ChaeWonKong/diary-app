@@ -11,6 +11,7 @@ import Header from "./Header";
 import Nav from "./Nav";
 import Entypo from "../node_modules/@expo/vector-icons/Entypo";
 import addDiary from "../reducer";
+import { createStore } from "redux";
 
 const { width } = Dimensions.get("window");
 const Opacity = 0.6;
@@ -53,7 +54,7 @@ export default class CreateScreen extends Component {
               returnKeyType={"next"}
             />
             <Button
-              title="SUBMIt"
+              title="SUBMIT"
               onPress={() => this.submitDiary(title, text, img)}
             />
             <Button
@@ -67,9 +68,8 @@ export default class CreateScreen extends Component {
     );
   }
   submitDiary = (title, text, img) => {
-    addDiary(title, text, img);
+    store.dispatch(addDiary(title, text, img));
     console.log(this.props.diaries);
-    alert(this.props.diaries);
   };
 }
 
